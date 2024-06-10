@@ -1,4 +1,4 @@
-const port = 4000;
+const port = 3000;
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -8,10 +8,18 @@ const path = require("path");
 const cors = require("cors");
 
 app.use(express.json());
-app.use(cors());
+
+const cors = require('cors');
+app.use(cors(
+  {
+    origin:["http://13.60.6.21:3000"],
+    method:['POST','GET','PUT','DELETE'],
+    credentials:true
+  }
+));
 
 // Database Connection With MongoDB
-mongoose.connect("mongodb+srv://vinaynetha821:vinaynetha@cluster0.xzbknmr.mongodb.net/e-commerce");
+mongoose.connect("mongodb+srv://vinaynetha821:vinaynetha@cluster0.jzrib8k.mongodb.net//e-commerce");
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
 
@@ -27,7 +35,7 @@ const upload = multer({storage: storage})
 app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
         success: 1,
-        image_url: `http://localhost:4000/images/${req.file.filename}`
+        image_url: `http://13.60.6.21:3000/images/${req.file.filename}`
     })
 })
 app.use('/images', express.static('upload/images'));
