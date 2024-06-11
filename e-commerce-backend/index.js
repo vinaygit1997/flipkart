@@ -19,7 +19,7 @@ app.use(cors(
 ));
 
 // Database Connection With MongoDB
-mongoose.connect("mongodb+srv://vinaynetha821:vinaynetha@cluster0.jzrib8k.mongodb.net//e-commerce");
+mongoose.connect("mongodb+srv://vinaykumarbeemanapalli:vinay1997@cluster0.jzrib8k.mongodb.net//e-commerce");
 // paste your mongoDB Connection string above with password
 // password should not contain '@' special character
 
